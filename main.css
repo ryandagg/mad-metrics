@@ -1,0 +1,172 @@
+.background {
+	background-color: #7F8C8D;
+	overflow: auto;
+	padding-top: 20px;
+	padding-bottom: 30px;
+}
+
+.top {
+	background-color: #2ECC71;
+	color: #ECF0F1;
+	height: 300px;
+	border-bottom: 6px solid #27AE60;
+}
+
+.top * {
+	line-height: 520px;
+	text-align: bottom;
+	margin-left: 3%;
+}
+.nav-bar {
+	background-color: #34495E;
+	border-bottom: 6px solid #2B3C4E;
+	text-align: right;
+	overflow: auto;
+}
+
+.nav-bar li {
+	display: inline-block;
+	padding-right: 5%;
+}
+
+.nav-bar li a {
+	color: white;
+	text-decoration: none;
+	font-size: 1.2em;
+}
+
+.main {
+	width: 80%;
+	background-color: #ECF0F1;
+	margin-left: auto;
+	margin-right: auto;
+	line-height: 30px;
+}
+
+.main-body > * {
+	margin-right: 3%;
+	margin-left: 3%;
+	text-align: left;
+}
+
+/*.main-body h2, .main h3 {
+	margin-left: 3%;
+}*/
+
+.main-body p {
+	margin-left: 6%
+}
+
+.main-body ol, .main-body li {
+	margin-left: 0;
+	padding-left: 0;
+}
+
+.code-box {
+	width: 100%;
+	background-color: #BDC3C7;
+
+}
+
+.code-box p {
+	padding-left: 5%;
+	padding-top: 3%;
+	padding-bottom: 3%;
+	letter-spacing: 4px;
+}
+
+.posted-by p {
+	color: #BCC9D2;
+	margin: 0;
+	padding: 0;
+}
+
+.main-body strong {
+	margin-left: 0;
+	margin-right: 0;
+}
+
+.comments-input-line {
+	color: #BCC9D2;
+}
+
+/*.comments-input input {
+	widows: 70%;
+}
+*/
+
+/*img {
+	max-width: 100%;
+}*/
+
+fieldset {
+	border-left: none;
+	border-bottom: none;
+	border-right: none;
+}
+
+legend {
+	padding-left: 10px;
+	padding-right: 10px;
+	color: #BCC9D2;
+}
+
+table td {
+    text-align: right;
+    /*margin-right: 2px;*/
+}
+
+.submit_butt {
+	background-color: #C0392B;
+	text-align: center;
+	padding-bottom: 1.5%;
+	padding-top: 1.5%;
+}
+
+.submit_butt a {
+	color: white;
+	text-decoration: none;
+	font-size: 1.1em;
+}
+
+.comments-display img {
+	float: left;
+	margin-right: 30px;
+	overflow: auto;
+}
+
+/*.user p:last-child {
+	padding-top: 10px;
+}*/
+
+.comments-display p {
+	margin-left: 0;
+	overflow: auto;
+}
+
+.replied-to {
+	border-left: 3px solid #BCC9D2;
+	padding-left: 10px;
+	margin-left: 40px;
+	overflow: auto;
+	clear: left;
+
+}
+
+/*.replied-to p:last-child {
+	padding-bottom: 0;
+	margin-bottom: 10px;
+}*/
+
+.user {
+	font-weight: bold;
+	font-size: 1.3em;
+	margin-bottom: 5px;
+	/*line-height: 60px;*/
+}
+
+time {
+	color: #BCC9D2;
+	font-style: italic; 
+}
+
