@@ -171,6 +171,8 @@ time {
 	font-style: italic; 
 }
 
+
+/******/
 /* styling for "Mad-Metrics" project*/
 .metricsBtn {
 	/*display: inline-block;*/
@@ -179,4 +181,38 @@ time {
 	margin-right: 40%;
 }
 
+.popup {
+	display: none;
+	box-sizing: border-box;
+	background-color: gray;
+	position: fixed;
+	width: 90%;
+	height: 70%;
+	top: 30px;
+	left: 30px;
+	color: white;
+	/*padding: 4%;*/
+	padding-left: 4%;
+	padding-right: 4%;
+}
 
+.popup h2 {
+	text-align: center;
+	color: blue;
+}
+
+.closeButton {
+	position: fixed;
+	top: 68%;
+	left: 84%;
+	color: black;
+}
+
+.popup th {
+	padding-right: 10px;
+	text-align: right;
+}
+
+/*.popup th:nth-child(2) {
+	background-color: black;
+}*/
