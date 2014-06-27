@@ -2,8 +2,8 @@
 /* Goals:
 **DONE** Time before clicking Sign Up
 **DONE** Time spent on page
-What percentage of the page was viewed
-Total distance scrolled
+**DONE** What percentage of the page was viewed
+**DONE** Total distance scrolled
 Time spent on each section of the page
 	How to do?
 	-break the page into text-line sized segments and 
@@ -16,11 +16,35 @@ var timeCount = 0;
 var countToSignUp;
 var signedUp = false;
 var intervalID;
-var scrollRangelist = [];
-var windowHeight = $(window).height();
-console.log(windowHeight)
-// var scrollBottomList = [];
+var scrollRangeList = [];
+var windowHeight = $(window).height(); // 963
+// console.log("windowHeight: ", windowHeight)
 
+
+// function to search through all scroll bottom values and determine how low they have scrolled
+var percentWindowScrolled = function() {
+	var bodyHeight = $("body").height();
+	var lowest = 0;
+	for (var i = 0; i < scrollRangeList.length; i++) {
+		if (scrollRangeList[i][1] > lowest) {
+			console.log("iteration: ", scrollRangeList[i][1], " | ", "lowest: ", lowest)
+			lowest = scrollRangeList[i][1];
+		}
+	}
+	console.log("lowest: ", lowest)
+	return String(Math.round(lowest / bodyHeight * 100)) + "%";
+}
+
+// function to determine total distance scrolled
+var distanceScrolled = function() {
+	var distance = 0;
+	for (var i = 1; i < scrollRangeList.length; i++) {
+		distance += Math.abs(scrollRangeList[i][0] - scrollRangeList[i - 1][0]);
+	};
+	return distance;
+}
+
+// timer used throughout doc
 var timer = function(command) {
 	if(command === 'start') {
 		intervalID = setInterval(function() {timeCount++;/* console.log(timeCount)*/}, 1000);
@@ -32,12 +56,16 @@ var timer = function(command) {
 
 timer("start");
 
-$(document).on('ready', function() {
-	$(document).on('scroll', function(){
-		scrollRangelist.push([$('body').scrollTop(), $('body').scrollTop() + windowHeight]);
-		
-	})
 
+// event handlers
+$(document).on('ready', function() {
+	// scroll functionality
+	$(document).on('scroll', function(){
+		scrollRangeList.push([$('body').scrollTop(), $('body').scrollTop() + windowHeight]);
+		
+	});
+
+	// metrics button functionality
 	$(".metricsBtn").on('click', function(){
 		timer("stop");
 
@@ -46,8 +74,13 @@ $(document).on('ready', function() {
 			signedUp = true;
 		}
 		$(".popup").show();
-		$(".timeTotalDisplay").text(timeCount + " seconds")
-		$(".signTimeDisplay").text(countToSignUp + " seconds")
+
+		// Fill the metrics on popup
+		$(".timeTotalDisplay").text(timeCount + " seconds");
+		$(".signTimeDisplay").text(countToSignUp + " seconds");
+		$(".percentViewedDisplay").text(percentWindowScrolled());
+		$(".totalDistanceDisplay").text(distanceScrolled() + "px");
+		// 
 	})		
 	
 	$(".closeButton").click(function(){
