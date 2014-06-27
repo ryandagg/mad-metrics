@@ -1,3 +1,4 @@
+/* main styling for original page ("Making It Real" project) */
 .background {
 	background-color: #7F8C8D;
 	overflow: auto;
@@ -169,4 +170,13 @@ time {
 	color: #BCC9D2;
 	font-style: italic; 
 }
+
+/* styling for "Mad-Metrics" project*/
+.metricsBtn {
+	/*display: inline-block;*/
+	/*text-align: center;*/
+	margin-left: 40%;
+	margin-right: 40%;
+}
+
 
