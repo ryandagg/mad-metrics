@@ -208,9 +208,24 @@ time {
 	color: black;
 }
 
+.heatButton {
+	position: fixed;
+	top: 68%;
+	left: 44%;
+	color: black;
+}
+
 .popup th {
 	padding-right: 10px;
 	text-align: right;
+}
+
+.heatmap {
+	opacity: 0.3;
+	background-color: red;
+	position: absolute;
+	z-index: 3;
+	pointer-events:none;
 }
 
 /*.popup th:nth-child(2) {
