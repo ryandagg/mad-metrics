@@ -21,11 +21,23 @@ $(document).on('ready', function() {
 	var intervalID;
 	var scrollRangeList = [];
 	var windowHeight = $(window).height();
-	var heatmapSectionTotal = 10;
+	// var heatmapSectionTotal = 10;
 	
 	setTimeout(function(){
 		window.bodyHeight = $("body").height();
-		
+		window.heatmapSectionTotal = Math.ceil(bodyHeight/300);
+		window.heatmapSectionRanges = [];
+		for (var i = 0; i < heatmapSectionTotal; i++) {
+			heatmapSectionRanges.push([windowHeight * i, windowHeight * i + windowHeight, 0]);
+			};
+		window.heatmapSectionCounter = function() {
+		for (var i = 0; i < heatmapSectionTotal; i++) {
+			if($("body").scrollTop() < heatmapSectionRanges[i][1]  && $("body").scrollTop() > heatmapSectionRanges[i][0]) {
+				heatmapSectionRanges[i][2]++;
+				}
+			}
+		}
+
 	}, 500);
 
 	// function to search through all scroll bottom values and determine how low they have scrolled
@@ -33,11 +45,11 @@ $(document).on('ready', function() {
 		var lowest = 0;
 		for (var i = 0; i < scrollRangeList.length; i++) {
 			if (scrollRangeList[i][1] > lowest) {
-				console.log("iteration: ", scrollRangeList[i][1], " | ", "lowest: ", lowest)
+				// console.log("iteration: ", scrollRangeList[i][1], " | ", "lowest: ", lowest)
 				lowest = scrollRangeList[i][1];
 			}
 		}
-		console.log("lowest: ", lowest)
+		// console.log("lowest: ", lowest)
 		return String(Math.round(lowest / bodyHeight * 100)) + "%";
 	}
 
@@ -50,17 +62,10 @@ $(document).on('ready', function() {
 		return distance;
 	}
 
-	// // time per section, called in timer function
-	// var heatmapSectionCounter = function() {
-	// 	for (var i = 0, i < heatmapSectionTotal; i++) {
-	// 		if()
-	// 	}
-	// }
-
 	// timer used throughout doc
 	var timer = function(command) {
 		if(command === 'start') {
-			intervalID = setInterval(function() {timeCount++;/* console.log(timeCount)*/}, 1000);
+			intervalID = setInterval(function() {timeCount++; heatmapSectionCounter(); /* console.log(timeCount)*/}, 1000);
 		}
 		else {
 			clearInterval(intervalID);
